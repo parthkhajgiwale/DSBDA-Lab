@@ -2,3 +2,47 @@
 >>val counts = inputfile.flatMap(line => line.split(' ')).map(word => (word,1)).reduceByKey(_+_)
 >>counts.cache()
 >>counts.saveAsTextFile('wc_output')
+
+Certainly! Here are some common questions about Scala that might come up in a viva or interview:
+
+1. What is Scala, and what are its key features?
+   - Scala is a general-purpose programming language designed to express common programming patterns in a concise, elegant, and type-safe way. 
+   - Key features include:
+     - It is a statically typed language with type inference.
+     - It supports both object-oriented and functional programming paradigms.
+     - It runs on the Java Virtual Machine (JVM), enabling seamless interoperability with Java.
+     - It provides powerful higher-order functions, pattern matching, and immutable data structures.
+
+2. How does Scala support both object-oriented and functional programming?
+   - Scala treats functions as first-class citizens, allowing them to be assigned to variables, passed as arguments, and returned from other functions.
+   - It provides immutable data structures and encourages the use of immutable values, which aligns with the principles of functional programming.
+   - Scala also supports object-oriented programming constructs such as classes, traits, inheritance, and encapsulation.
+
+3. What is pattern matching in Scala, and how is it used?
+   - Pattern matching is a powerful feature in Scala that allows you to match a value against a pattern and extract parts of the value based on the pattern.
+   - It can be used in match expressions, case classes, and partial functions to handle different cases in a concise and readable way.
+   - Pattern matching is often used for tasks such as deconstructing data structures, parsing input, and implementing state machines.
+
+4. Explain higher-order functions in Scala.
+   - Higher-order functions are functions that take other functions as parameters or return functions as results.
+   - Scala supports higher-order functions, allowing functions to be treated as values and passed around like any other data type.
+   - Higher-order functions enable powerful abstractions and enable concise and expressive code.
+
+5. What is the difference between `val` and `var` in Scala?
+   - `val` is used to declare immutable variables, meaning their values cannot be changed once assigned.
+   - `var` is used to declare mutable variables, allowing their values to be reassigned.
+   - Immutable values are preferred in Scala whenever possible because they promote safer and more predictable code.
+
+6. Explain the concept of immutability in Scala and its benefits.
+   - Immutability refers to the property of values that cannot be modified after they are created.
+   - In Scala, immutable data structures are preferred because they are inherently thread-safe and free from side effects.
+   - Immutability promotes safer and more predictable code, facilitates reasoning about programs, and simplifies parallel and concurrent programming.
+
+7. What is Scala Context and RDD?
+1. Scala Context:
+   - SparkContext: Entry point for Spark functionality, facilitating RDD creation and distributed computation.
+   - SQLContext/SparkSession: Allows structured data operations, SQL queries, and DataFrame manipulation in Spark applications.
+
+2. RDD (Resilient Distributed Dataset):
+   - Resilient: Fault-tolerant data structure with lineage information for recovery.
+   - Distributed: Parallel, immutable collection enabling distributed data processing in Apache Spark.
