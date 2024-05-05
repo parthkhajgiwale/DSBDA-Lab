@@ -6,6 +6,8 @@ val base_df = spark.read.text("/home/parthk2113/Desktop/weblog.csv")
 
 import spark.implicits._
 
+import spark.implicits._
+
 val parsed_df = base_df.select(
     regexp_extract($"value", """^([^(\s|,)]+)""", 1).alias("host"),
     regexp_extract($"value", """^.*\[(\d\d/\w{3}/\d{4}:\d{2}:\d{2}:\d{2})""", 1).as("timestamp"),
@@ -43,6 +45,5 @@ println("Count of 404 Response Codes: %d".format(not_found_count))
 
 logs_df.filter($"status" === 404).groupBy("host").count().sort(desc("count")).show(25, truncate = false)
 
-val daily_hosts_df = logs_df.withColumn("day", dayofyear($"time")).withColumn("year", year($"time")).select("host", "day", "year").distinct().groupBy("day", "year").count().sort("year", "day").cache()
-val unique_daily_hosts_count = daily_hosts_df.count()
+val unique_daily_hosts_count = logs_df.select("host", "day", "year").distinct().groupBy("day", "year").count().sort("year", "day").count()
 println("Number of Unique Daily Hosts: %d".format(unique_daily_hosts_count))
