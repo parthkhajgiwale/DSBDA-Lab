@@ -2,7 +2,7 @@ import org.apache.spark.sql.{SparkSession, Column}
 import org.apache.spark.sql.functions.{regexp_extract, sum, col, to_date, udf, to_timestamp, desc, dayofyear, year}
 
 val spark = SparkSession.builder().appName("WebLog").master("local[*]").getOrCreate()
-val base_df = spark.read.text("/home/deptii/Web_Log/weblog.csv")
+val base_df = spark.read.text("/home/parthk2113/Desktop/weblog.csv")
 
 import spark.implicits._
 
