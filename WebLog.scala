@@ -42,6 +42,8 @@ println("Number of unique Hosts: %d".format(unique_host_count))
 
 val not_found_count = logs_df.filter($"status" === 404).count()
 println("Count of 404 Response Codes: %d".format(not_found_count))
+logs_df.filter($"status" === 404).show()
+
 
 logs_df.filter($"status" === 404).groupBy("host").count().sort(desc("count")).show(25, truncate = false)
 
